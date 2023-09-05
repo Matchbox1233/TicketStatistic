@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket quality</title>
+  </head>
+  <body>
+    <p>Easy: The ticket is forwared to 3rd level teams</p>
+    <button onclick="
+      IncreaseTheTicketNumber('Easy');
+    ">Easy +1</button>
+
+    <button onclick="
+      DecreaseTheTicketNumber('Easy');
+    ">Easy -1</button>
+
+    <p>Normal: 2nd level solution and the ticket is send back to 1st level</p> 
+    <button onclick="
+        IncreaseTheTicketNumber('Normal');
+    ">Normal +1</button>
+
+    <button onclick="
+      DecreaseTheTicketNumber('Normal');
+    ">Normal -1</button>
+
+    <p>Hard: Asked somebody for help to solve the ticket</p>
+    <button onclick="
+      IncreaseTheTicketNumber('Hard');
+    ">Hard +1</button>
+
+    <button onclick="
+      DecreaseTheTicketNumber('Hard');
+    ">Hard -1</button>
+
+    <p>Other: The ticket that don't fit the previous options</p>
+    <button onclick="
+      IncreaseTheTicketNumber('Other');
+    ">Other +1</button>
+
+    <button onclick="
+      DecreaseTheTicketNumber('Other');
+    ">Other -1</button>
+
+
+    <script>
+      let NumberOfTheEasyTickets = 0;
+      let NumberOfTheNormalTickets = 0;
+      let NumberOfTheHardTickets = 0;
+      let NumberOfTheOtherTickets = 0;
+
+      let NumberOfAllTickets = 0;
+
+      
+      NumberOfAllTickets = NumberOfTheEasyTickets + NumberOfTheNormalTickets + NumberOfTheHardTickets + NumberOfTheOtherTickets;
+      console.log(`Number of all tickets: ${NumberOfAllTickets}`);
+      
+      function IncreaseTheTicketNumber(TicketType){
+        if(TicketType === 'Easy'){
+          NumberOfTheEasyTickets ++;
+          console.log(`Number of the easy tickets: ${NumberOfTheEasyTickets}`);
+        }else if(TicketType === 'Normal'){
+          NumberOfTheNormalTickets++;
+          console.log(`Number of the normal tickets: ${NumberOfTheNormalTickets}`)
+        }else if(TicketType === 'Hard'){
+          NumberOfTheHardTickets++;
+          console.log(`Number of the hard tickets: ${NumberOfTheHardTickets}`)
+        }else if(TicketType === 'Other'){
+          NumberOfTheOtherTickets++;
+          console.log(`Number of the other tickets: ${NumberOfTheOtherTickets}`);
+        }
+      }
+
+      function DecreaseTheTicketNumber(TicketType){
+        if(TicketType === 'Easy'){
+          NumberOfTheEasyTickets--;
+          console.log(`Number of the easy tickets: ${NumberOfTheEasyTickets}`);
+        }else if(TicketType === 'Normal'){
+          NumberOfTheNormalTickets--;
+          console.log(`Number of the normal tickets: ${NumberOfTheNormalTickets}`);
+        }else if(TicketType === 'Hard'){
+          NumberOfTheHardTickets--;
+          console.log(`Number of the hard tickets: ${NumberOfTheHardTickets}`);
+        }else if(TicketType === 'Other'){
+          NumberOfTheOtherTickets--;
+          console.log(`Number of the other tickets: ${NumberOfTheOtherTickets}`);
+        }
+      }
+      
+    </script>
+
+  </body>
+</html>
