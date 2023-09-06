@@ -42,51 +42,113 @@
       DecreaseTheTicketNumber('Other');
     ">Other -1</button>
 
+    <p>Delete the previous statistics</p>
+    <button onclick="
+      NumberOfTickets.Easy = 0;
+      NumberOfTickets.Normal = 0;
+      NumberOfTickets.Hard = 0;
+      NumberOfTickets.Other = 0;
+      NumberOfTickets.All = 0;
+
+      PercentageOfTickets.Easy = 0;
+      PercentageOfTickets.Normal = 0;
+      PercentageOfTickets.Hard = 0;
+      PercentageOfTickets.Other = 0;
+
+      localStorage.removeItem('NumberOfTickets');
+      localStorage.removeItem('PercentageOfTickets');
+    ">Reset statistics</button>
+
+    <button onclick="
+      alert(`Number of all tickets: ${NumberOfTickets.All}
+        Number of easy tickets: ${NumberOfTickets.Easy}
+        Number of normal tickets: ${NumberOfTickets.Normal}
+        Number of hard tickets: ${NumberOfTickets.Hard}
+        Number of other tickets: ${NumberOfTickets.Other}`);
+    ">Test statistics</button>
+
 
     <script>
-      let NumberOfTheEasyTickets = 0;
-      let NumberOfTheNormalTickets = 0;
-      let NumberOfTheHardTickets = 0;
-      let NumberOfTheOtherTickets = 0;
 
-      let NumberOfAllTickets = 0;
-
+      let NumberOfTickets = JSON.parse(localStorage.getItem('NumberOfTickets')) || {
+        Easy: 0,
+        Normal: 0,
+        Hard: 0,
+        Other: 0,
+        All: 0,
+      };
       
-      NumberOfAllTickets = NumberOfTheEasyTickets + NumberOfTheNormalTickets + NumberOfTheHardTickets + NumberOfTheOtherTickets;
-      console.log(`Number of all tickets: ${NumberOfAllTickets}`);
+      let PercentageOfTickets = JSON.parse(localStorage.getItem('PercentageOfTickets')) || {
+        Easy: 0,
+        Normal: 0,
+        Hard: 0,
+        Other: 0,
+      };
       
       function IncreaseTheTicketNumber(TicketType){
         if(TicketType === 'Easy'){
-          NumberOfTheEasyTickets ++;
-          console.log(`Number of the easy tickets: ${NumberOfTheEasyTickets}`);
+          NumberOfTickets.Easy ++;
+          console.log(`Number of the easy tickets: ${NumberOfTickets.Easy}`);
         }else if(TicketType === 'Normal'){
-          NumberOfTheNormalTickets++;
-          console.log(`Number of the normal tickets: ${NumberOfTheNormalTickets}`)
+          NumberOfTickets.Normal++;
+          console.log(`Number of the normal tickets: ${NumberOfTickets.Normal}`)
         }else if(TicketType === 'Hard'){
-          NumberOfTheHardTickets++;
-          console.log(`Number of the hard tickets: ${NumberOfTheHardTickets}`)
+          NumberOfTickets.Hard++;
+          console.log(`Number of the hard tickets: ${NumberOfTickets.Hard}`)
         }else if(TicketType === 'Other'){
-          NumberOfTheOtherTickets++;
-          console.log(`Number of the other tickets: ${NumberOfTheOtherTickets}`);
+          NumberOfTickets.Other++;
+          console.log(`Number of the other tickets: ${NumberOfTickets.Other}`);
         }
+        
+        NumberOfTickets.All = NumberOfTickets.Easy + NumberOfTickets.Normal + NumberOfTickets.Hard + NumberOfTickets.Other;
+        
+        localStorage.setItem('NumberOfTickets', JSON.stringify(NumberOfTickets));
+
       }
 
       function DecreaseTheTicketNumber(TicketType){
         if(TicketType === 'Easy'){
-          NumberOfTheEasyTickets--;
-          console.log(`Number of the easy tickets: ${NumberOfTheEasyTickets}`);
+          NumberOfTickets.Easy--;
+          console.log(`Number of the easy tickets: ${NumberOfTickets.Easy}`);
         }else if(TicketType === 'Normal'){
-          NumberOfTheNormalTickets--;
-          console.log(`Number of the normal tickets: ${NumberOfTheNormalTickets}`);
+          NumberOfTickets.Normal--;
+          console.log(`Number of the normal tickets: ${NumberOfTickets.Normal}`);
         }else if(TicketType === 'Hard'){
-          NumberOfTheHardTickets--;
-          console.log(`Number of the hard tickets: ${NumberOfTheHardTickets}`);
+          NumberOfTickets.Hard--;
+          console.log(`Number of the hard tickets: ${NumberOfTickets.Hard}`);
         }else if(TicketType === 'Other'){
-          NumberOfTheOtherTickets--;
-          console.log(`Number of the other tickets: ${NumberOfTheOtherTickets}`);
+          NumberOfTickets.Other--;
+          console.log(`Number of the other tickets: ${NumberOfTickets.Other}`);
         }
+
+        localStorage.setItem('NumberOfTickets', JSON.stringify(NumberOfTickets));
+
       }
-      
+
+      function ShowTicketNumberByType() {
+        console.log(`Number of all tickets: ${NumberOfTickets.All}`);
+        console.log(`Number of easy tickets: ${NumberOfTickets.Easy}`);
+        console.log(`Number of normal tickets: ${NumberOfTickets.Normal}`);
+        console.log(`Number of hard tickets: ${NumberOfTickets.Hard}`);
+        console.log(`Number of other tickets: ${NumberOfTickets.Other}`);
+      }
+
+      function TicketsByPercentage() {
+        PercentageOfTickets.Easy = NumberOfTickets.Easy / (NumberOfTickets.All / 100);
+        console.log(`Easy tickets: ${PercentageOfTickets.Easy}%`);
+
+        PercentageOfTickets.Normal = NumberOfTickets.Normal / (NumberOfTickets.All / 100);
+        console.log(`Normal tickets: ${PercentageOfTickets.Normal}%`);
+
+        PercentageOfTickets.Hard = NumberOfTickets.Hard / (NumberOfTickets.All / 100);
+        console.log(`Hard tickets: ${PercentageOfTickets.Hard}%`);
+
+        PercentageOfTickets.Other = NumberOfTickets.Other / (NumberOfTickets.All / 100);
+        console.log(`Other tickets: ${PercentageOfTickets.Other}%`);
+
+        localStorage.setItem('PercentageOfTickets', JSON.stringify(PercentageOfTickets));
+      }
+
     </script>
 
   </body>
