@@ -8,86 +8,91 @@
   </head>
   <body>
     <h1>Ticket Quality</h1>
-    <p>Easy: The ticket is forwared to 3rd level teams</p>
-    <input placeholder="Ticket number" class="js-easy-ticket-input">
-    <button onclick="
-      IncreaseTheTicketNumber('Easy');
-      TicketInput('Easy');
-    ">Easy +1</button>
+    <div class="container">
+      <div class="Left-side-inputs">
+        <p>Easy: The ticket is forwared to 3rd level teams</p>
+        <input placeholder="Ticket number" class="js-easy-ticket-input">
+        <button onclick="
+          IncreaseTheTicketNumber('Easy');
+          TicketInput('Easy');
+        ">Easy</button>
+  
+        <p>Normal: 2nd level solution and the ticket is send back to 1st level</p>
+        <input placeholder="Ticket number" class="js-normal-ticket-input">
+        <button onclick="
+            IncreaseTheTicketNumber('Normal');
+            TicketInput('Normal');
+        ">Normal</button>
+  
+        <p>Hard: Asked somebody for help to solve the ticket</p>
+        <input placeholder="Ticket number" class="js-hard-ticket-input">
+        <button onclick="
+          IncreaseTheTicketNumber('Hard');
+          TicketInput('Hard');
+        ">Hard</button>
+  
+        <p>Other: The ticket that don't fit the previous options</p>
+        <input placeholder="Ticket number" class="js-other-ticket-input">
+        <button onclick="
+          IncreaseTheTicketNumber('Other');
+          TicketInput('Other');
+        ">Other</button>
+  
+        <p>Delete the previous statistics</p>
+        <button onclick="
+          NumberOfTickets.Easy = 0;
+          NumberOfTickets.Normal = 0;
+          NumberOfTickets.Hard = 0;
+          NumberOfTickets.Other = 0;
+          NumberOfTickets.All = 0;
+  
+          PercentageOfTickets.Easy = 0;
+          PercentageOfTickets.Normal = 0;
+          PercentageOfTickets.Hard = 0;
+          PercentageOfTickets.Other = 0;
+  
+          localStorage.removeItem('NumberOfTickets');
+          localStorage.removeItem('PercentageOfTickets');
+  
+          UpdateTicketNumbers();
+        ">Reset statistics</button>
+  
+        <p>Show current statistics</p>
+        <button onclick="
+          UpdateTicketNumbers();
+        ">Show statistics</button>
+      </div>
+      <div class="Right-side-tickets">
+        <div class="Easy-tickets-column">
+          <p>Easy tickets</p>
+        </div>
+        <div class="Normal-tickets-column">
+          <p>Normal tickets</p>
+        </div>
+        <div class="Hard-tickets-column">
+          <p>Hard tickets</p>
+        </div>
+        <div class="Other-tickets-column">
+          <p>Other tickets</p>
+        </div>
+      </div>
+    </div>
+    
 
-    <button onclick="
-      DecreaseTheTicketNumber('Easy');
-    ">Easy -1</button>
+    <div class="Bottom-statistics">
+      <P>====================================</P>
+      <p class="js-all-tickets-number"></p>
+      <p class="js-easy-tickets-number"></p>
+      <p class="js-normal-tickets-number"></p>
+      <p class="js-hard-tickets-number"></p>
+      <p class="js-other-tickets-number"></p>
 
-    <p>Normal: 2nd level solution and the ticket is send back to 1st level</p>
-    <input placeholder="Ticket number" class="js-normal-ticket-input">
-    <button onclick="
-        IncreaseTheTicketNumber('Normal');
-        TicketInput('Normal');
-    ">Normal +1</button>
-
-    <button onclick="
-      DecreaseTheTicketNumber('Normal');
-    ">Normal -1</button>
-
-    <p>Hard: Asked somebody for help to solve the ticket</p>
-    <input placeholder="Ticket number" class="js-hard-ticket-input">
-    <button onclick="
-      IncreaseTheTicketNumber('Hard');
-      TicketInput('Hard');
-    ">Hard +1</button>
-
-    <button onclick="
-      DecreaseTheTicketNumber('Hard');
-    ">Hard -1</button>
-
-    <p>Other: The ticket that don't fit the previous options</p>
-    <input placeholder="Ticket number" class="js-other-ticket-input">
-    <button onclick="
-      IncreaseTheTicketNumber('Other');
-      TicketInput('Other');
-    ">Other +1</button>
-
-    <button onclick="
-      DecreaseTheTicketNumber('Other');
-    ">Other -1</button>
-
-    <p>Delete the previous statistics</p>
-    <button onclick="
-      NumberOfTickets.Easy = 0;
-      NumberOfTickets.Normal = 0;
-      NumberOfTickets.Hard = 0;
-      NumberOfTickets.Other = 0;
-      NumberOfTickets.All = 0;
-
-      PercentageOfTickets.Easy = 0;
-      PercentageOfTickets.Normal = 0;
-      PercentageOfTickets.Hard = 0;
-      PercentageOfTickets.Other = 0;
-
-      localStorage.removeItem('NumberOfTickets');
-      localStorage.removeItem('PercentageOfTickets');
-
-      UpdateTicketNumbers();
-    ">Reset statistics</button>
-
-    <p>Show current statistics</p>
-    <button onclick="
-      UpdateTicketNumbers();
-    ">Show statistics</button>
-
-    <P>====================================</P>
-    <p class="js-all-tickets-number"></p>
-    <p class="js-easy-tickets-number"></p>
-    <p class="js-normal-tickets-number"></p>
-    <p class="js-hard-tickets-number"></p>
-    <p class="js-other-tickets-number"></p>
-
-    <P>====================================</P>
-    <p class="js-easy-tickets"></p>
-    <p class="js-normal-tickets"></p>
-    <p class="js-hard-tickets"></p>
-    <p class="js-other-tickets"></p>
+      <P>====================================</P>
+      <p class="js-easy-tickets"></p>
+      <p class="js-normal-tickets"></p>
+      <p class="js-hard-tickets"></p>
+      <p class="js-other-tickets"></p>
+    </div>
 
     <script src="Scripts.js"></script>
 
