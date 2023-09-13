@@ -13,6 +13,13 @@ let PercentageOfTickets = JSON.parse(localStorage.getItem('PercentageOfTickets')
   Other: 0,
 };
 
+let TicektList = [{
+  Easy: '',
+  Normal: '',
+  Hard: '',
+  Other: '',
+}];
+
 function IncreaseTheTicketNumber(TicketType){
   if(TicketType === 'Easy'){
     NumberOfTickets.Easy ++;
@@ -27,26 +34,6 @@ function IncreaseTheTicketNumber(TicketType){
   SumOfAllTickets();
   TicketsByPercentage();
   
-  localStorage.setItem('NumberOfTickets', JSON.stringify(NumberOfTickets));
-
-  UpdateTicketNumbers();
-
-}
-
-function DecreaseTheTicketNumber(TicketType){
-  if(TicketType === 'Easy'){
-    NumberOfTickets.Easy--;
-  }else if(TicketType === 'Normal'){
-    NumberOfTickets.Normal--;
-  }else if(TicketType === 'Hard'){
-    NumberOfTickets.Hard--;
-  }else if(TicketType === 'Other'){
-    NumberOfTickets.Other--;
-  }
-
-  SumOfAllTickets();
-  TicketsByPercentage();
-
   localStorage.setItem('NumberOfTickets', JSON.stringify(NumberOfTickets));
 
   UpdateTicketNumbers();
@@ -79,26 +66,40 @@ function TicketsByPercentage() {
   localStorage.setItem('PercentageOfTickets', JSON.stringify(PercentageOfTickets));
 }
 
+function RenderTicketList() {
+  let TicektListHTML = '';
+
+  for(let i = 0; i < TicektList.length; i++){
+     const TicektListObject = TicektList[i];
+     
+  }
+
+}
+
 function TicketInput(TicketType) {
   if(TicketType === 'Easy'){
     const EasyInputElement = document.querySelector('.js-easy-ticket-input');
     let EasyTicket = EasyInputElement.value;
     document.querySelector('.js-easy-tickets').innerHTML = EasyTicket;
+    EasyInputElement.value = '';
 
   }else if(TicketType === 'Normal'){
     const NormalInputElement = document.querySelector('.js-normal-ticket-input');
     let NormalTicket = NormalInputElement.value;
     document.querySelector('.js-normal-tickets').innerHTML = NormalTicket;
+    NormalInputElement.value = '';
 
   }else if(TicketType === 'Hard'){
     const HardInputElement = document.querySelector('.js-hard-ticket-input');
     let HardTicket = HardInputElement.value;
     document.querySelector('.js-hard-tickets').innerHTML = HardTicket;
+    HardInputElement.value = '';
 
   }else if(TicketType === 'Other'){
     const OtherInputElement = document.querySelector('.js-other-ticket-input');
     let OtherTicket = OtherInputElement.value;
     document.querySelector('.js-other-tickets').innerHTML = OtherTicket;
+    OtherInputElement.value = '';
   }
   
 }
