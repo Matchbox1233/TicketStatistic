@@ -2,6 +2,50 @@ body{
   font-family: Arial;
   font-weight: bold;
   font-size: large;
+  margin: 0;
+}
+
+.container{
+  border-color: black;
+  border-width: 5px;
+  border-style: solid;
+
+  width: 99%;
+  margin: 0 auto;
+}
+
+.Left-side-inputs, .Right-side-tickets{
+  border-color: red;
+  border-width: 5px;
+  border-style: solid;
+
+  display: inline-block;
+  width: 49%;
+  vertical-align: top;
+  
+}
+
+.Right-side-tickets{
+  text-align: center;
+}
+
+.Easy-tickets-column, .Normal-tickets-column, .Hard-tickets-column, .Other-tickets-column{
+  border-color: blue;
+  border-width: 5px;
+  border-style: solid;
+
+  display: inline-block;
+  width: 22%;
+  vertical-align: top;
+}
+
+
+.Bottom-statistics{
+  border-color: red;
+  border-width: 5px;
+  border-style: solid;
+
+  width: 100%;
 }
 
 input{
