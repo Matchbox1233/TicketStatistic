@@ -13,12 +13,47 @@ let PercentageOfTickets = JSON.parse(localStorage.getItem('PercentageOfTickets')
   Other: 0,
 };
 
-let TicektList = [{
-  Easy: '',
-  Normal: '',
-  Hard: '',
-  Other: '',
-}];
+document.querySelector('.js-easy-button').addEventListener('click', () => {
+  IncreaseTheTicketNumber('Easy');
+  TicketInput('Easy');
+});
+
+document.querySelector('.js-normal-button').addEventListener('click', () => {
+  IncreaseTheTicketNumber('Normal');
+  TicketInput('Normal');
+});
+
+document.querySelector('.js-hard-button').addEventListener('click', () => {
+  IncreaseTheTicketNumber('Hard');
+  TicketInput('Hard');
+});
+
+document.querySelector('.js-other-button').addEventListener('click', () => {
+  IncreaseTheTicketNumber('Other');
+  TicketInput('Other');
+});
+
+document.querySelector('.js-deleteStatistics-button').addEventListener('click', () => {
+  NumberOfTickets.Easy = 0;
+  NumberOfTickets.Normal = 0;
+  NumberOfTickets.Hard = 0;
+  NumberOfTickets.Other = 0;
+  NumberOfTickets.All = 0;
+
+  PercentageOfTickets.Easy = 0;
+  PercentageOfTickets.Normal = 0;
+  PercentageOfTickets.Hard = 0;
+  PercentageOfTickets.Other = 0;
+
+  localStorage.removeItem('NumberOfTickets');
+  localStorage.removeItem('PercentageOfTickets');
+
+  UpdateTicketNumbers();
+});
+
+document.querySelector('.js-showStatistics-button').addEventListener('click', () => {
+  UpdateTicketNumbers();
+});
 
 function IncreaseTheTicketNumber(TicketType){
   if(TicketType === 'Easy'){
@@ -64,16 +99,6 @@ function TicketsByPercentage() {
   PercentageOfTickets.Other = NumberOfTickets.Other / (NumberOfTickets.All / 100);
 
   localStorage.setItem('PercentageOfTickets', JSON.stringify(PercentageOfTickets));
-}
-
-function RenderTicketList() {
-  let TicektListHTML = '';
-
-  for(let i = 0; i < TicektList.length; i++){
-     const TicektListObject = TicektList[i];
-     
-  }
-
 }
 
 function TicketInput(TicketType) {
