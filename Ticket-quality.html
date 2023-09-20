@@ -12,55 +12,25 @@
       <div class="Left-side-inputs">
         <p>Easy: The ticket is forwared to 3rd level teams</p>
         <input placeholder="Ticket number" class="js-easy-ticket-input">
-        <button onclick="
-          IncreaseTheTicketNumber('Easy');
-          TicketInput('Easy');
-        ">Easy</button>
+        <button class="js-easy-button">Easy</button>
   
         <p>Normal: 2nd level solution and the ticket is send back to 1st level</p>
         <input placeholder="Ticket number" class="js-normal-ticket-input">
-        <button onclick="
-            IncreaseTheTicketNumber('Normal');
-            TicketInput('Normal');
-        ">Normal</button>
+        <button class="js-normal-button">Normal</button>
   
         <p>Hard: Asked somebody for help to solve the ticket</p>
         <input placeholder="Ticket number" class="js-hard-ticket-input">
-        <button onclick="
-          IncreaseTheTicketNumber('Hard');
-          TicketInput('Hard');
-        ">Hard</button>
+        <button class="js-hard-button">Hard</button>
   
         <p>Other: The ticket that don't fit the previous options</p>
         <input placeholder="Ticket number" class="js-other-ticket-input">
-        <button onclick="
-          IncreaseTheTicketNumber('Other');
-          TicketInput('Other');
-        ">Other</button>
+        <button class="js-other-button">Other</button>
   
         <p>Delete the previous statistics</p>
-        <button onclick="
-          NumberOfTickets.Easy = 0;
-          NumberOfTickets.Normal = 0;
-          NumberOfTickets.Hard = 0;
-          NumberOfTickets.Other = 0;
-          NumberOfTickets.All = 0;
-  
-          PercentageOfTickets.Easy = 0;
-          PercentageOfTickets.Normal = 0;
-          PercentageOfTickets.Hard = 0;
-          PercentageOfTickets.Other = 0;
-  
-          localStorage.removeItem('NumberOfTickets');
-          localStorage.removeItem('PercentageOfTickets');
-  
-          UpdateTicketNumbers();
-        ">Reset statistics</button>
+        <button class="js-deleteStatistics-button">Reset statistics</button>
   
         <p>Show current statistics</p>
-        <button onclick="
-          UpdateTicketNumbers();
-        ">Show statistics</button>
+        <button class="js-showStatistics-button">Show statistics</button>
       </div>
       <div class="Right-side-tickets">
         <div class="Easy-tickets-column">
