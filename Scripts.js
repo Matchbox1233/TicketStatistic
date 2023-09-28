@@ -82,6 +82,25 @@ function IncreaseTheTicketNumber(TicketType){
 
 }
 
+function DecreaseTheTicketNumber(TicketType){
+  if(TicketType === 'Easy'){
+    NumberOfTickets.Easy --;
+  }else if(TicketType === 'Normal'){
+    NumberOfTickets.Normal--;
+  }else if(TicketType === 'Hard'){
+    NumberOfTickets.Hard--;
+  }else if(TicketType === 'Other'){
+    NumberOfTickets.Other--;
+  }
+
+  SumOfAllTickets();
+  TicketsByPercentage();
+
+  UpdateTicketNumbers();
+
+  localStorage.setItem('NumberOfTickets', JSON.stringify(NumberOfTickets));
+}
+
 function SumOfAllTickets() {
   NumberOfTickets.All = NumberOfTickets.Easy + NumberOfTickets.Normal + NumberOfTickets.Hard + NumberOfTickets.Other;
 
@@ -129,6 +148,7 @@ function RenderTicketList(TicketType){
         <button onclick="
           TicketList.Easy.splice(${i}, 1);
           RenderTicketList('Easy');
+          DecreaseTheTicketNumber('Easy');
         " class="delete-button">X</button>
       `;
 
@@ -149,6 +169,7 @@ function RenderTicketList(TicketType){
         <button onclick="
           TicketList.Normal.splice(${i}, 1);
           RenderTicketList('Normal');
+          DecreaseTheTicketNumber('Normal');
         " class="delete-button">X</button>
       `;
 
@@ -169,6 +190,7 @@ function RenderTicketList(TicketType){
         <button onclick="
           TicketList.Hard.splice(${i}, 1);
           RenderTicketList('Hard');
+          DecreaseTheTicketNumber('Hard');
         " class="delete-button">X</button>
       `;
 
@@ -189,6 +211,7 @@ function RenderTicketList(TicketType){
         <button onclick="
           TicketList.Other.splice(${i}, 1);
           RenderTicketList('Other');
+          DecreaseTheTicketNumber('Other');
         " class="delete-button">X</button>
       `;
 
