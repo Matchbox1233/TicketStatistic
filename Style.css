@@ -1,14 +1,19 @@
 body{
   font-family: Arial;
-  font-weight: bold;
   font-size: large;
   margin: 0;
+  background-color: rgb(239, 238, 236);
+}
+
+h1{
+  text-align: center;
+  margin: 50px;
 }
 
 .container{
-  border-color: black;
+  /*border-color: black;
   border-width: 5px;
-  border-style: solid;
+  border-style: solid;*/
 
   display: grid;
   grid-template-columns: 40% 60%;
@@ -19,50 +24,75 @@ body{
   grid-template-columns: 25% 25% 25% 25%;
 }
 
-.Left-side-inputs, .Right-side-tickets{
-  border-color: red;
-  border-width: 5px;
-  border-style: solid;
+.left-side-text{
+  margin-left: 10px;
+}
+
+.Left-side-inputs{
+  border-right: 2px solid #000;
+}
+
+.column-header{
+  text-align: center;
+  border-bottom: 2px solid #000;
+ 
   
 }
 
 .List-of-tickets{
   display: grid;
-  grid-template-columns: 85% 15%;
+  grid-template-columns: 80% 20%;
   row-gap: 5px;
   margin: 8px;
 
 }
 
+.delete-button{
+  background-color: darkred;
+  color: white;
+  border: none;
+  cursor: pointer;
+  
+}
+
 .Ticket-list-column{
-  border-color: blue;
+  /*border-color: blue;
   border-width: 5px;
-  border-style: solid;
+  border-style: solid;*/
 
 }
 
 .Bottom-statistics{
-  border-color: red;
-  border-width: 5px;
-  border-style: solid;
+  margin-left: 20px;
 
 }
 
 input{
+  margin-left: 25px;
   padding: 8px 12px;
   font-size: medium
 }
 
 .left-side-button{
   padding: 10px 18px;
-  background-color: rgb(0, 220, 254);
+  background-color: rgb(19, 19, 188);
+  color: white;
   font-weight: bold;
-  border-radius: 20px;
-  border: 1px blue;
+  border: none;
   cursor: pointer;
 }
 
-h1{
+.statistics-buttons{
+  display: grid;
+  grid-template-columns: 45% 55%;
   text-align: center;
-  margin: 50px;
+  margin-top: 30px;
+}
+
+.show-statistics-button{
+  margin-top: 20px;
+}
+
+.Bottom-statistics{
+  margin-top: 50px;
 }
