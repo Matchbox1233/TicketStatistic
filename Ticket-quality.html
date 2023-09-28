@@ -11,28 +11,33 @@
 
     <div class="container">
       <div class="Left-side-inputs">
-        <p>Easy: The ticket is forwared to 3rd level teams</p>
+        <p class="left-side-text">Easy: The ticket is forwared to 3rd level teams</p>
         <input placeholder="Ticket number" class="js-easy-ticket-input">
         <button class="js-easy-button left-side-button">Easy</button>
   
-        <p>Normal: 2nd level solution and the ticket is send back to 1st level</p>
+        <p class="left-side-text">Normal: 2nd level solution and the ticket is send back to 1st level</p>
         <input placeholder="Ticket number" class="js-normal-ticket-input">
         <button class="js-normal-button left-side-button">Normal</button>
   
-        <p>Hard: Asked somebody for help to solve the ticket</p>
+        <p class="left-side-text">Hard: Asked somebody for help to solve the ticket</p>
         <input placeholder="Ticket number" class="js-hard-ticket-input">
         <button class="js-hard-button left-side-button">Hard</button>
   
-        <p>Other: The ticket that don't fit the previous options</p>
+        <p class="left-side-text">Other: The ticket that don't fit the previous options</p>
         <input placeholder="Ticket number" class="js-other-ticket-input">
         <button class="js-other-button left-side-button">Other</button>
   
-        <p>Delete the previous statistics</p>
-        <button class="js-deleteStatistics-button left-side-button">Reset statistics</button>
-  
-        <p>Show current statistics</p>
-        <button class="js-showStatistics-button left-side-button">Show statistics</button>
-
+        <div class="statistics-buttons">
+          <div>
+            <p>Delete the previous statistics</p>
+            <button class="js-deleteStatistics-button left-side-button">Reset statistics</button>
+          </div>
+          <div>
+            <p>Show current statistics</p>
+            <button class="js-showStatistics-button left-side-button                show-statistics-button">Show statistics</button>
+          </div>
+        </div>
+        
         <div class="Bottom-statistics">
           <p class="js-all-tickets-number"></p>
           <p class="js-easy-tickets-number"></p>
@@ -44,19 +49,19 @@
       </div>
       <div class="Right-side-tickets">
         <div class="Ticket-list-column">
-          <p>Easy tickets</p>
+          <p class="column-header">Easy tickets</p>
           <div class="Easy-tickets-column List-of-tickets"></div>
         </div>
         <div class="Ticket-list-column">
-          <p>Normal tickets</p>
+          <p class="column-header">Normal tickets</p>
           <div class="Normal-tickets-column List-of-tickets"></div>
         </div>
         <div class="Ticket-list-column">
-          <p>Hard tickets</p>
+          <p class="column-header">Hard tickets</p>
           <div class="Hard-tickets-column List-of-tickets"></div>
         </div>
         <div class="Ticket-list-column">
-          <p>Other tickets</p>
+          <p class="column-header">Other tickets</p>
           <div class="Other-tickets-column List-of-tickets"></div>
         </div>
       </div>
